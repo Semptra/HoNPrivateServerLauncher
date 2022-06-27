@@ -1,0 +1,54 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:HoNPrivateServerLauncher.UI.ViewModels"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="HoNPrivateServerLauncher.UI.Views.MainWindow"
+        Icon="/Assets/launcher-logo.ico"
+        Title="HoNPrivateServerLauncher.UI">
+
+    <Design.DataContext>
+        <vm:MainWindowViewModel/>
+    </Design.DataContext>
+
+	<Grid RowDefinitions="*,*,*,*,*,*" ColumnDefinitions="*">
+		<Button Grid.Row="0" Grid.Column="0">
+			DOWNLOAD OFFICIAL HON CLIENT v4.10.1 [Win x64]
+		</Button>
+		<Button Grid.Row="1" Grid.Column="0">
+			DOWNLOAD OFFICIAL HON CLIENT v4.10.1 [MacOS]
+		</Button>
+		<Panel Grid.Row="2" Grid.Column="0">
+			<Grid RowDefinitions="*" ColumnDefinitions="*,*">
+				<TextBlock Grid.Row="0" Grid.Column="0">
+					LOGIN:
+				</TextBlock>
+				<TextBox Grid.Row="0" Grid.Column="1" Text="{Binding Login}" Watermark="Login" />
+			</Grid>
+		</Panel>
+		<Panel Grid.Row="3" Grid.Column="0">
+			<Grid RowDefinitions="*" ColumnDefinitions="*,*">
+				<TextBlock Grid.Row="0" Grid.Column="0">
+					PASSWORD:
+				</TextBlock>
+				<TextBox Grid.Row="0" Grid.Column="1" Text="{Binding Password}" PasswordChar="*" />
+			</Grid>
+		</Panel>
+		<Panel Grid.Row="4" Grid.Column="0">
+			<CheckBox IsChecked="{Binding SaveSettings}">
+				SAVE SETTINGS
+			</CheckBox>
+		</Panel>
+		<Panel Grid.Row="5" Grid.Column="0">
+			<Grid RowDefinitions="*" ColumnDefinitions="*,*">
+				<Button Grid.Row="0" Grid.Column="0" Command="{Binding RegisterAccountCommand}">
+					REGISTER ACCOUNT
+				</Button>
+				<Button Grid.Row="0" Grid.Column="1" Command="{Binding StartHoNCommand}">
+					START HON
+				</Button>
+			</Grid>
+		</Panel>
+	</Grid>
+</Window>
